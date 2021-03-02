@@ -1,5 +1,7 @@
 # Creating symbol links
 
+For creating symbol link you can simply use `initLinks.sh` script, that do it for you automatically. Just don't forget to uncomment line that allow execute sudo commands without password in `/etc/sudoers` file.
+
 zsh
 ```
 ln -s ~/.dotfiles/zsh/zshrc ~/.config/zsh/zshrc
