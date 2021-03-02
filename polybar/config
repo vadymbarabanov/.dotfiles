@@ -17,9 +17,10 @@ background = #222222
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
+foreground-alt = #777
+primary = #9ACD32
 secondary = #e60053
+caution = #ffff00
 alert = #bd2c40
 
 [bar/example]
@@ -48,7 +49,7 @@ module-margin-right = 1
 
 font-0 = FiraCode Nerd Font:pixelsize=11;1
 font-1 = FiraCode Nerd Font:pixelsize=14;1
-font-2 = siji:pixelsize=10;1
+font-2 = FiraCode Nerd Font:pixelsize=18;1
 
 modules-left = bspwm xkeyboard backlight-acpi pulseaudio
 modules-center = date
@@ -212,13 +213,13 @@ format-disconnected = "睊"
 ; ramp-signal-2 = "ﰐ "
 ; ramp-signal-3 = "ﰑ "
 ; ramp-signal-4 = "ﰒ "
-ramp-signal-0 = "0"
-ramp-signal-1 = "1"
-ramp-signal-2 = "2"
-ramp-signal-3 = "3"
-ramp-signal-4 = "4"
-ramp-signal-foreground = ${colors.foreground-alt}
-ramp-signal-font = 2
+ramp-signal-0 = ""
+ramp-signal-1 = ""
+ramp-signal-2 = ""
+ramp-signal-3 = ""
+ramp-signal-4 = ""
+ramp-signal-foreground = ${colors.foreground}
+ramp-signal-font = 3
 
 [module/eth]
 type = internal/network
@@ -285,24 +286,22 @@ full-at = 98
 
 format-charging = <animation-charging> <label-charging>
 
-format-discharging = <animation-discharging> <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
 
-format-full-prefix = "  "
+format-full-prefix = " "
 format-full-prefix-font = 2
-format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-prefix-foreground = ${colors.primary}
 
-ramp-capacity-0 = " "
-ramp-capacity-1 = " "
+ramp-capacity-0 = "   "
+ramp-capacity-0-foreground = ${colors.alert}
+ramp-capacity-1 = "   "
+ramp-capacity-1-foreground = ${colors.caution}
 ramp-capacity-2 = " "
 ramp-capacity-3 = " "
 ramp-capacity-4 = " "
 ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-font = 2
 
-; animation-charging-0 = 
-; animation-charging-1 = 
-; animation-charging-2 = 
-; animation-charging-3 = 
-; animation-charging-4 = 
 animation-charging-0 = "  "
 animation-charging-1 = "  "
 animation-charging-2 = "  "
@@ -312,34 +311,28 @@ animation-charging-foreground = ${colors.primary}
 animation-charging-framerate = 750
 animation-charging-font = 2
 
-; animation-discharging-0 = 
-; animation-discharging-1 = 
-; animation-discharging-2 = 
-; animation-discharging-3 = 
-; animation-discharging-4 = 
-; animation-discharging-5 = 
-animation-discharging-0 = " "
-animation-discharging-1 = " "
-animation-discharging-2 = " "
-animation-discharging-3 = " "
-animation-discharging-4 = " "
-animation-discharging-foreground = ${colors.secondary}
-animation-discharging-framerate = 750
-animation-discharging-font = 2
+; animation-discharging-0 = " "
+; animation-discharging-1 = " "
+; animation-discharging-2 = " "
+; animation-discharging-3 = " "
+; animation-discharging-4 = " "
+; animation-discharging-foreground = ${colors.secondary}
+; animation-discharging-framerate = 750
+; animation-discharging-font = 2
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 60
+warn-temperature = 70
 
-; format = <ramp> <label>
-; format-warn = <ramp> <label-warn>
-format = <label>
-format-warn = <label-warn>
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+; format = <label>
+; format-warn = <label-warn>
 
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
+label-warn-foreground = ${colors.alert}
 
 ramp-0 = ""
 ramp-1 = ""
