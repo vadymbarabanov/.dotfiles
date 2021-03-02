@@ -1,0 +1,6 @@
+#!/bit/sh
+
+[[ -f ~/.config/zsh/.zshenv ]] && . ~/.config/zsh/.zshenv
+[[ -f ~/.config/zsh/.zshrc ]] && . ~/.config/zsh/.zshrc
+
+startx
