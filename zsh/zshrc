@@ -1,0 +1,59 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.cache/zsh/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -v
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/jisatsu/.config/zsh/zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+autoload -U colors && colors
+
+PATH=~/.scripts:"$PATH"
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+# Basic auto/tab complete:
+# autoload -U compinit
+# zstyle ':completion:*' menu select
+# zmodload zsh/complist
+# compinit_
+# _comp_options+=(globdots) # Include hidden files
+
+PS1="%F{yellow} %n%f %F{blue}%~%f %F{yellow}>%f "
+
+alias e='exit'
+alias c='clear'
+alias ll='ls -F -hla --color=auto'
+alias ls='ls -F -h --color=auto'
+
+# Swap ESC and CAPS buttons
+setxkbmap -option caps:swapescape
+# Adding US, RU, UA keyboards
+setxkbmap -layout us,ru,ua -option grp:alt_shift_toggle
+
+# Load zsh-syntax-highlighting: should be last.
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
