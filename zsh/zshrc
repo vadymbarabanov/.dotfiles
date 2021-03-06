@@ -55,9 +55,5 @@ setxkbmap -option caps:swapescape
 # Adding US, RU, UA keyboards
 setxkbmap -layout us,ru,ua -option grp:alt_shift_toggle
 
-# Wise Cow
-fortune | cowsay
-echo ""
-
 # Load zsh-syntax-highlighting: should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
