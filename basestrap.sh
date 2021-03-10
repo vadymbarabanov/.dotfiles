@@ -56,7 +56,7 @@ ln -s ~/.dotfiles/polybar/config ~/.config/polybar/config
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ln -s ~/.dotfiles/nvim/init.vim ~/.config/nvim/init.vim
-ln -s ~/.dotfiles/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
+cp ~/.dotfiles/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 
 # alacritty
 [!-d "~/.config/alacritty" ] && echo "Creating alacritty folder" && mkdir ~/.config/alacritty

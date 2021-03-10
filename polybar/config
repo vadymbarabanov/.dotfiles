@@ -50,11 +50,11 @@ module-margin-right = 1
 
 font-0 = FiraCode Nerd Font:pixelsize=9;1
 font-1 = FiraCode Nerd Font:pixelsize=12;1
-font-2 = FiraCode Nerd Font:pixelsize=16;1
+font-2 = FiraCode Nerd Font:pixelsize=15;1
 
 modules-left = bspwm xkeyboard backlight-acpi pulseaudio
 modules-center = date
-modules-right =  wlan networkspeedup networkspeeddown eth memory cpu temperature battery powermenu
+modules-right =  wlan networkspeedup networkspeeddown eth cpu temperature memory battery
 
 tray-position = right
 tray-padding = 2
@@ -87,16 +87,6 @@ label-layout = %layout%
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
-
-; [module/filesystem]
-; type = internal/fs
-; interval = 25
-
-; mount-0 = /
-
-; label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-; label-unmounted = %mountpoint% not mounted
-; label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/bspwm]
 type = internal/bspwm
@@ -209,16 +199,16 @@ format-disconnected = "睊"
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-; ramp-signal-0 = "ﰓ "
-; ramp-signal-1 = "ﰔ "
-; ramp-signal-2 = "ﰐ "
-; ramp-signal-3 = "ﰑ "
-; ramp-signal-4 = "ﰒ "
-ramp-signal-0 = ""
-ramp-signal-1 = ""
-ramp-signal-2 = ""
-ramp-signal-3 = ""
-ramp-signal-4 = ""
+ramp-signal-0 = "ﰓ "
+ramp-signal-1 = "ﰔ "
+ramp-signal-2 = "ﰐ "
+ramp-signal-3 = "ﰑ "
+ramp-signal-4 = "ﰒ "
+; ramp-signal-0 = ""
+; ramp-signal-1 = ""
+; ramp-signal-2 = ""
+; ramp-signal-3 = ""
+; ramp-signal-4 = ""
 ramp-signal-foreground = ${colors.foreground}
 ramp-signal-font = 3
 
