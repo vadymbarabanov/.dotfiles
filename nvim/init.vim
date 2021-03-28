@@ -17,7 +17,10 @@ Plug 'lilydjwg/colorizer'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
-Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -116,51 +119,46 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 "========================= PLUGINS CONFIGURATION =============================="
 
-" CTRLP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-" ignore some folders and files for CtrlP indexing
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.yardoc\|node_modules\|log\|tmp$',
-  \ 'file': '\.so$\|\.dat$|\.DS_Store$|\v\.(exe|so|dll|class|png|jpg|jpeg)$'
-  \ }
+" FZF
+nnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <C-g> :Buffers<CR>
+" search inside files
+nnoremap <silent> <Leader>f :Rg<CR>
 
 " NERDTree
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
-let g:NERDTreeIgnore = ['^node_modules$']
+let g:NERDTreeWinSize = 31
+let g:NERDTreeIgnore = ['^node_modules$', '^dist$']
 let g:NERDTreeStatusline = ''
 let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeMapOpenExpl = 'f'
 let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreeBookmarksFile = '~/.cache/NERDTree/.NERDTreeBookmarksFile'
+
+" Toggle NERDTree
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 
 " Automaticaly close nvim if NERDTree is only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")
     \ && b:NERDTree.isTabTree()) | q | endif
 
-" Toggle NERDTree
-nnoremap <silent> <C-b> :NERDTreeToggle<CR>
-nnoremap <silent> <C-c> :NERDTreeFind<CR>
-
-" Check if NERDTree is open or active
-function! IsNERDTreeOpen()
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+" Automaticaly open NERDTree when arguments: !files | directory
+function! StartUp()
+    if !argc() && !exists("s:std_in")
+        NERDTree
+    end
+    if argc() && isdirectory(argv()[0]) && !exists("s:std_in")
+        exe 'NERDTree' argv()[0]
+        wincmd p
+        ene
+    end
 endfunction
-
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * call StartUp()
 
 " INDENTLINE
-let g:indentLine_char = '|'
+let g:indentLine_char = ''
 autocmd FileType markdown,json,vim let g:indentLine_enabled=0
 
 " COLORSCHEME
@@ -189,7 +187,6 @@ let g:lightline = {
         \ 'filetype': 'FileTypeIcon',
         \ 'fileformat': 'FileFormatIcon',
         \ 'fileencoding': 'LightlineFileencoding',
-        \ 'mode': 'LightlineMode',
 	\ },
     \ 'tab_component_function': {
         \   'tabnum': 'LightlineWebDevIcons',
@@ -210,15 +207,6 @@ let g:lightline = {
         \ 't': 'T',
         \ },
 	\ }
-
-function! LightlineMode()
-  return expand('%:t') =~# '^__Tagbar__' ? 'Tagbar':
-        \ expand('%:t') ==# 'ControlP' ? 'CtrlP' :
-        \ &filetype ==# 'unite' ? 'Unite' :
-        \ &filetype ==# 'vimfiler' ? 'VimFiler' :
-        \ &filetype ==# 'vimshell' ? 'VimShell' :
-        \ lightline#mode()
-endfunction
 
 function! LightlineFilename()
   return &filetype ==# 'vimfiler' ? vimfiler#get_status_string() :
@@ -265,6 +253,8 @@ endfunction
 let mapleader=" "
 set termguicolors
 set guifont=FiraCode\ Nerd\ Font\ Mono:h12
+
+set spelllang=en,ru
 
 set colorcolumn=81
 set cursorline
@@ -325,11 +315,12 @@ autocmd filetype * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " reload configuration
 map <silent><leader>s :source $MYVIMRC<cr><bar> :echo "Config Updated!"<cr>
 
-" Ctrl+s to save, Ctrl+q to quit
+" Ctrl+s to save all
 noremap  <c-s> :wa<cr>
 inoremap <c-s> <esc>:wa<cr>
-noremap  <c-q> :qa<cr>
-inoremap <c-q> <esc> :qa<cr>
+" Ctrl+q to quit current buffer
+noremap  <c-q> :q<cr>
+inoremap <c-q> <esc> :q<cr>
 
 " Resizing
 nnoremap <silent><a-h> :vertical resize -10<CR>

@@ -43,6 +43,13 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # compinit_
 # _comp_options+=(globdots) # Include hidden files
 
+# Allow fzf to user ripgrep
+if type rg &> /dev/null; then
+    # export FZF_DEFAULT_COMMAND='rg --files'
+    export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+    export FZF_DEFAULT_OPTS='-m --height 50% --border'
+fi
+
 PS1="%F{yellow} %n%f %F{blue}%~%f %F{yellow}>%f "
 
 alias e='exit'
