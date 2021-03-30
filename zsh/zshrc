@@ -36,12 +36,21 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# Basic auto/tab complete:
-# autoload -U compinit
-# zstyle ':completion:*' menu select
-# zmodload zsh/complist
-# compinit_
-# _comp_options+=(globdots) # Include hidden files
+# Git integration to prompt
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats '%F{yellow} %b%f '
+
+setopt PROMPT_SUBST
+PROMPT='%F{green}[%n]%f %F{blue}%~%f ${vcs_info_msg_0_}%F{green}>%f '
+# right side of prompt
+RPROMPT='%F{green}<%f'
+
+alias e='exit'
+alias c='clear'
+alias ll='ls -F -hla --color=auto --group-directories-first'
+alias ls='ls -F -hv --color=auto --group-directories-first'
+
 
 # Allow fzf to user ripgrep
 if type rg &> /dev/null; then
@@ -49,13 +58,6 @@ if type rg &> /dev/null; then
     export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
     export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
-
-PS1="%F{yellow} %n%f %F{blue}%~%f %F{yellow}>%f "
-
-alias e='exit'
-alias c='clear'
-alias ll='ls -F -hla --color=auto'
-alias ls='ls -F -h --color=auto'
 
 # Swap ESC and CAPS buttons
 setxkbmap -option caps:swapescape
