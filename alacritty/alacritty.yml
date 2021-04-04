@@ -115,7 +115,7 @@ font:
   # Italic font face
   italic:
     family: FiraCode Nerd Font
-    style: Italic
+    style: Retina
 
   # Point size
   size: 8.0
