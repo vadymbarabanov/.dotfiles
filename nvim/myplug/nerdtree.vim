@@ -17,15 +17,15 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")
     \ && b:NERDTree.isTabTree()) | q | endif
 
 " Automaticaly open NERDTree when arguments: !files | directory
-function! StartUp()
-    if !argc() && !exists("s:std_in")
-        NERDTree
-    end
-    if argc() && isdirectory(argv()[0]) && !exists("s:std_in")
-        exe 'NERDTree' argv()[0]
-        wincmd p
-        ene
-    end
-endfunction
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * call StartUp()
+" function! StartUp()
+"     if !argc() && !exists("s:std_in")
+"         NERDTree
+"     end
+"     if argc() && isdirectory(argv()[0]) && !exists("s:std_in")
+"         exe 'NERDTree' argv()[0]
+"         wincmd p
+"         ene
+"     end
+" endfunction
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * call StartUp()

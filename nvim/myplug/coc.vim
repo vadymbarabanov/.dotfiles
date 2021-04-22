@@ -4,9 +4,17 @@ let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-html',
     \ 'coc-prettier',
-    \ 'coc-snippets',
     \ 'coc-tsserver',
     \ ]
+
+" Conditionaly include Prettier or Eslint to extentions based on node_modules
+" if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+"   let g:coc_global_extensions += ['coc-prettier']
+" endif
+
+" if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+"   let g:coc_global_extensions += ['coc-eslint']
+" endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
@@ -42,7 +50,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Open diagnostic list
-nnoremap <silent> <leader>d :<C-u>CocList diagnostics<cr>
+nnoremap <silent><space>od :<C-u>CocList diagnostics<cr>
 
 nmap <silent><space>rn <Plug>(coc-rename)
 nmap <silent><space>do <Plug>(coc-codeaction)

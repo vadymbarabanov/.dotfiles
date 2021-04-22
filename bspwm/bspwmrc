@@ -30,3 +30,9 @@ bspc rule -a Screenkey manage=off
 
 # Set wallpaper
 ~/.scripts/setbg ~/media/wallpapers &
+
+# Transparency
+picom &
+
+# Set arrow cursor
+xsetroot -cursor_name left_ptr &

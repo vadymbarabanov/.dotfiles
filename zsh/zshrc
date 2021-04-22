@@ -51,7 +51,7 @@ alias c='clear'
 alias ll='ls -F -hla --color=auto --group-directories-first'
 alias ls='ls -F -hv --color=auto --group-directories-first'
 
-
+export BAT_THEME="TwoDark"
 # Allow fzf to user ripgrep
 if type rg &> /dev/null; then
     # export FZF_DEFAULT_COMMAND='rg --files'

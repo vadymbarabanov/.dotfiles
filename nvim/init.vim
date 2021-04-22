@@ -44,6 +44,8 @@ call plug#end()
 source ~/.config/nvim/myplug/coc.vim
 
 " FZF
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --theme=TwoDark --color=always --style=header,grid --line-range :300 {}'"
 nnoremap <silent> <c-p> :Files<CR>
 nnoremap <silent> <c-b> :Buffers<CR>
 " search inside files
@@ -57,8 +59,6 @@ let g:indentLine_char = ''
 autocmd FileType markdown,json let g:indentLine_enabled=0
 
 " COLORSCHEME
-" let ayucolor="mirage"
-
 set background=dark
 let g:onedark_hide_endofbuffer = 1
 try | colorscheme onedark | catch | endtry
@@ -82,8 +82,8 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 " Delete empty space from the end of lines on every save
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Spellcheck for markdown
-au BufRead,BufNewFile *.md setlocal spell
+" Spellcheck
+autocmd FileType tex,latex,markdown,gitcommit setlocal spell spelllang=en_us
 
 " disable auto commeting on new line
 autocmd filetype * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -105,12 +105,20 @@ inoremap <c-s> <esc>:wa<cr>
 " Ctrl+q to quit current buffer
 noremap  <c-q> :q<cr>
 inoremap <c-q> <esc> :q<cr>
+nmap <leader><tab> <c-^>
+nmap <leader>wa <c-w>v:A<CR>
+
+noremap  S :%s//gc<Left><Left><Left>
 
 " Resizing
 nnoremap <silent><a-h> :vertical resize -10<CR>
 nnoremap <silent><a-l> :vertical resize +10<CR>
 nnoremap <silent><a-j> :resize -5<CR>
 nnoremap <silent><a-k> :resize +5<CR>
+
+" Better indenting
+vnoremap > >gv
+vnoremap < <gv
 
 " moving between windows
 map <c-j> <c-w>j
@@ -140,5 +148,17 @@ function ToggleColorcolumn()
         setlocal colorcolumn=81
     endif
 endfunction
+
+let t:is_transparent = 0
+function! Toggle_transparent()
+    if t:is_transparent == 0
+        hi Normal guibg=NONE ctermbg=NONE
+        let t:is_transparent = 1
+    else
+        set background=dark
+        let t:is_transparent = 0
+    endif
+endfunction
+nnoremap <C-t> : call Toggle_transparent()<CR>
 
 "=============================================================================="

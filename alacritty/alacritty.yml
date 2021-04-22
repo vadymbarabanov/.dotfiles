@@ -57,11 +57,6 @@ window:
   # Values for `decorations`:
   #     - full: Borders and title bar
   #     - none: Neither borders nor title bar
-  #
-  # Values for `decorations` (macOS only):
-  #     - transparent: Title bar, transparent background and title bar buttons
-  #     - buttonless: Title bar, transparent background and no title bar buttons
-  #decorations: full
 
   # Startup Mode (changes require restart)
   #
@@ -70,8 +65,6 @@ window:
   #   - Maximized
   #   - Fullscreen
   #
-  # Values for `startup_mode` (macOS only):
-  #   - SimpleFullscreen
   #startup_mode: Windowed
 
   # Window title
@@ -307,7 +300,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-# background_opacity: 1.0
+background_opacity: 0.9
 
 #selection:
   # This string contains all characters that are used as separators for
