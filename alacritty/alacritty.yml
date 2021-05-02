@@ -74,17 +74,17 @@ window:
   #dynamic_title: true
 
   # Window class (Linux/BSD only):
-  #class:
+  class:
     # Application instance name
-    #instance: Alacritty
+    instance: Alacritty
     # General application class
-    #general: Alacritty
+    general: Alacritty
 
   # GTK theme variant (Linux/BSD only)
   #
   # Override the variant of the GTK theme. Commonly supported values are `dark`
   # and `light`. Set this to `None` to use the default theme variant.
-  #gtk_theme_variant: None
+  gtk_theme_variant: Dark
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
@@ -95,23 +95,33 @@ scrolling:
 
 # Font configuration
 font:
+  # Point size
+  size: 9.0
+
   # Normal (roman) font face
   normal:
-    family: FiraCode Nerd Font
+    # family: FiraCode Nerd Font
+
+    # family: JetBrainsMono Nerd Font
+
+    # strage hash tag
+    # family: Blex Mono Nerd Font
+
+    # narrow and horizontally tight characters
+    family: Iosevka Nerd Font
+
     style: Regular
 
   # Bold font face
   bold:
-    family: FiraCode Nerd Font
+    family: Iosevka Nerd Font
     style: Bold
 
   # Italic font face
   italic:
-    family: FiraCode Nerd Font
-    style: Retina
+    family: Iosevka Nerd Font
+    style: Italic
 
-  # Point size
-  size: 8.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter

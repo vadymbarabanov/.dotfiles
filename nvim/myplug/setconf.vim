@@ -2,7 +2,7 @@ let mapleader=" "                 " set leader key to space
 nnoremap <space> <nop>
 
 set termguicolors
-set guifont=FiraCode\ Nerd\ Font\ Mono:h12
+set guifont=FiraCode\ Nerd\ Font\ Mono:h10
 
 set colorcolumn=81
 set cursorline
@@ -40,7 +40,8 @@ set updatetime=50                 " default is 4000, bad for diagnostic
 set history=1000
 set undolevels=1000
 
-set expandtab                     " convert tabs into spaces
+set list lcs=tab:\▏\ " here a space
+" set expandtab                     " convert tabs into spaces
 set tabstop=4                     " show tabs as 4 spaces
 set shiftwidth=4                  " number of spaces to use for indenting
 set autoindent                    " copy indent from previous line

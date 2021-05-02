@@ -35,26 +35,20 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = FiraCode Nerd Font:pixelsize=9;1
+; override-redirect = true
+; wm-restack = bspwm
+
+font-0 = FiraCode Nerd Font:pixelsize=10;1
 font-1 = FiraCode Nerd Font:pixelsize=12;1
-font-2 = FiraCode Nerd Font:pixelsize=15;1
-font-3 = "Noto Color Emoji:pixelsize=10:style=Regular:scale=10;2"
+font-2 = FiraCode Nerd Font:pixelsize=14;1
+font-3 = "Noto Color Emoji:pixelsize=8:style=Regular:scale=12;2"
 
 modules-left = bspwm xkeyboard backlight-acpi pulseaudio
 modules-center = date
-modules-right =  wlan eth cpu temperature memory battery
+modules-right =  wlan eth memory cpu temperature battery
 
 tray-position = right
 tray-padding = 2
-;tray-background = #0063ff
-
-;wm-restack = bspwm
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
 cursor-click = pointer
 cursor-scroll = ns-resize
 
@@ -70,11 +64,12 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
-format-prefix-font = 2
-format-prefix-foreground = ${colors.foreground-alt}
+format = <label-layout> <label-indicator>
+label-layout  = 🌍 %icon%
 
-label-layout = %layout%
+layout-icon-0 = us;EN
+layout-icon-1 = ru;RU
+layout-icon-2 = ua;UA
 
 label-indicator-padding = 2
 label-indicator-margin = 1
@@ -98,32 +93,14 @@ label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 1
 
-; Separator in between workspaces
-; label-separator = |
-
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-
 [module/xbacklight]
 type = internal/xbacklight
 
-format = <label> <bar>
+format = 🔆 <label> <bar>
 label = %percentage%%
 
 bar-width = 11
 bar-indicator = 🔹
-bar-indicator-foreground = #fff
-bar-indicator-font = 4
 bar-fill = ─
 bar-fill-font = 1
 bar-fill-foreground = #9f78e1
@@ -139,21 +116,46 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-; format-prefix = " " , also change font 4 -> 2
-format-prefix = "🔲 "
-format-prefix-font = 4
-; format-prefix-foreground = ${colors.foreground-alt}
-label = %percentage:2%%
+
+format = <ramp-load> <label>
+label = %percentage%%
+
+ramp-load-0 = ▁
+ramp-load-1 = ▂
+ramp-load-2 = ▃
+ramp-load-3 = ▄
+ramp-load-4 = ▅
+ramp-load-5 = ▆
+ramp-load-6 = ▇
+ramp-load-7 = █
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 85
+
+format = 🔥 <label>
+format-warn = 💥 <label-warn>
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.alert}
 
 [module/memory]
 type = internal/memory
 interval = 2
-; format-prefix = " " , also change font 4 -> 2
-format-prefix = "💽 "
-format-prefix-font = 4
-; format-prefix-foreground = ${colors.foreground-alt}
-; label = %percentage_used%%
+
+format = <ramp-used> <label>
 label = %gb_used%
+
+ramp-used-0 = ▁
+ramp-used-1 = ▂
+ramp-used-2 = ▃
+ramp-used-3 = ▄
+ramp-used-4 = ▅
+ramp-used-5 = ▆
+ramp-used-6 = ▇
+ramp-used-7 = █
 
 [module/wlan]
 type = internal/network
@@ -161,30 +163,25 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-label-connected = %essid%
+label-connected = %essid% %downspeed:%
 
-format-disconnected = "睊"
-;format-disconnected = <label-disconnected>
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
 
-; ramp-signal-0 = "ﰓ "
-; ramp-signal-1 = "ﰔ "
-; ramp-signal-2 = "ﰐ "
-; ramp-signal-3 = "ﰑ "
-; ramp-signal-4 = "ﰒ "
-; ramp-signal-0 = ""
-; ramp-signal-1 = ""
-; ramp-signal-2 = ""
-; ramp-signal-3 = ""
-; ramp-signal-4 = ""
-ramp-signal-0 = "0/4"
-ramp-signal-1 = "1/4"
-ramp-signal-2 = "2/4"
-ramp-signal-3 = "3/4"
-ramp-signal-4 = "4/4"
-ramp-signal-foreground = ${colors.foreground}
-ramp-signal-font = 2
+format-disconnected = <label-disconnected>
+label-disconnected = "睊"
+label-disconnected-font = 2
+
+format-packetloss = <animation-packetloss> <label-connected>
+
+animation-packetloss-0 = ⚠
+animation-packetloss-1 = 📶
+; ms
+animation-packetloss-framerate = 500
 
 [module/eth]
 type = internal/network
@@ -205,44 +202,54 @@ type = internal/date
 interval = 5
 
 date =
-date-alt = " %d-%m-%Y"
+date-alt = | %d.%m.%Y
 
 time = %H:%M
-time-alt = %H:%M:%S
-
-; format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
+time-alt = %H:%M
 
 label = %time% %date%
+label-font = 2
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-; format-volume = <label-volume>
+format-volume = <ramp-volume> <label-volume> <bar-volume>
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = "🔇 "
-label-muted-font = 4
 ; label-muted-foreground = ${colors.foreground}
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
 
+
+bar-volume-indicator =
 bar-volume-width = 11
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-2 = #f5a70a
+bar-volume-foreground-3 = #ff5555
 bar-volume-gradient = false
-bar-volume-indicator = 🔸
-bar-volume-indicator-font = 4
-bar-volume-fill = ─
-bar-volume-fill-font = 1
-bar-volume-empty = ─
-bar-volume-empty-font = 1
-bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-volume-fill = ▐
+bar-volume-empty = ▐
+bar-volume-empty-foreground = #444444
+
+; bar-volume-width = 11
+; bar-volume-foreground-0 = #55aa55
+; bar-volume-foreground-1 = #55aa55
+; bar-volume-foreground-2 = #55aa55
+; bar-volume-foreground-3 = #55aa55
+; bar-volume-foreground-4 = #55aa55
+; bar-volume-foreground-5 = #f5a70a
+; bar-volume-foreground-6 = #ff5555
+; bar-volume-gradient = false
+; bar-volume-indicator = 🔸
+; bar-volume-fill = ─
+; bar-volume-fill-font = 1
+; bar-volume-empty = ─
+; bar-volume-empty-font = 1
+; bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
@@ -275,26 +282,6 @@ animation-charging-4 = "  "
 animation-charging-foreground = ${colors.primary}
 animation-charging-framerate = 750
 animation-charging-font = 2
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 70
-
-; format = <ramp> <label>
-; format-warn = <ramp> <label-warn>
-format = 🔥 <label>
-format-warn = 💥 <label-warn>
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.alert}
-
-ramp-0 = ""
-ramp-1 = ""
-ramp-2 = ""
-ramp-foreground = ${colors.foreground-alt}
-ramp-font = 2
 
 [module/powermenu]
 type = custom/menu

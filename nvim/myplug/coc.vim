@@ -3,18 +3,16 @@ let g:coc_global_extensions = [
     \ 'coc-css',
     \ 'coc-json',
     \ 'coc-html',
-    \ 'coc-prettier',
     \ 'coc-tsserver',
     \ ]
 
-" Conditionaly include Prettier or Eslint to extentions based on node_modules
-" if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-"   let g:coc_global_extensions += ['coc-prettier']
-" endif
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
 
-" if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-"   let g:coc_global_extensions += ['coc-eslint']
-" endif
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>

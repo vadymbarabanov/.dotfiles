@@ -5,11 +5,13 @@ call plug#begin('~/.config/nvim/plugged')
 " Colorschemes
 Plug 'ayu-theme/ayu-vim'
 Plug 'joshdick/onedark.vim'
+Plug 'folke/tokyonight.nvim'
 
 " Visual plugins
 Plug 'itchyny/lightline.vim'
-Plug 'Yggdroot/indentLine'
 Plug 'lilydjwg/colorizer'
+Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Functional plugins
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -55,12 +57,14 @@ nnoremap <silent> <c-f> :Rg<CR>
 source ~/.config/nvim/myplug/nerdtree.vim
 
 " INDENTLINE
-let g:indentLine_char = ''
+" let g:indentLine_char = ''
+let g:indentLine_char = '▏'
 autocmd FileType markdown,json let g:indentLine_enabled=0
 
 " COLORSCHEME
 set background=dark
 let g:onedark_hide_endofbuffer = 1
+let g:onedark_terminal_italics = 1
 try | colorscheme onedark | catch | endtry
 
 " fix popup color so it's easier to read

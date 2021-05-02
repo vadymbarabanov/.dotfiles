@@ -34,5 +34,8 @@ bspc rule -a Screenkey manage=off
 # Transparency
 picom &
 
+# Fullscreen with transparency fix
+cleanfullscreen &
+
 # Set arrow cursor
 xsetroot -cursor_name left_ptr &
