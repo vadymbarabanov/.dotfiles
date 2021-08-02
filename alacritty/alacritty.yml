@@ -96,30 +96,27 @@ scrolling:
 # Font configuration
 font:
   # Point size
-  size: 9.0
+  size: 8.0
 
   # Normal (roman) font face
   normal:
+    family:  Rec Mono Linear
+    # Casual Semicasual Duotone
+
     # family: FiraCode Nerd Font
-
+    # family: Iosevka Nerd Font
     # family: JetBrainsMono Nerd Font
-
-    # strage hash tag
-    # family: Blex Mono Nerd Font
-
-    # narrow and horizontally tight characters
-    family: Iosevka Nerd Font
 
     style: Regular
 
   # Bold font face
   bold:
-    family: Iosevka Nerd Font
+    family: Rec Mono Linear
     style: Bold
 
   # Italic font face
   italic:
-    family: Iosevka Nerd Font
+    family: Rec Mono Linear
     style: Italic
 
 

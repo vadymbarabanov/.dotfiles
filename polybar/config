@@ -70,6 +70,7 @@ label-layout  = 🌍 %icon%
 layout-icon-0 = us;EN
 layout-icon-1 = ru;RU
 layout-icon-2 = ua;UA
+layout-icon-3 = ko;KR
 
 label-indicator-padding = 2
 label-indicator-margin = 1
@@ -224,32 +225,32 @@ ramp-volume-1 = 🔉
 ramp-volume-2 = 🔊
 
 
-bar-volume-indicator =
-bar-volume-width = 11
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #f5a70a
-bar-volume-foreground-3 = #ff5555
-bar-volume-gradient = false
-bar-volume-fill = ▐
-bar-volume-empty = ▐
-bar-volume-empty-foreground = #444444
-
+; bar-volume-indicator =
 ; bar-volume-width = 11
 ; bar-volume-foreground-0 = #55aa55
 ; bar-volume-foreground-1 = #55aa55
-; bar-volume-foreground-2 = #55aa55
-; bar-volume-foreground-3 = #55aa55
-; bar-volume-foreground-4 = #55aa55
-; bar-volume-foreground-5 = #f5a70a
-; bar-volume-foreground-6 = #ff5555
+; bar-volume-foreground-2 = #f5a70a
+; bar-volume-foreground-3 = #ff5555
 ; bar-volume-gradient = false
-; bar-volume-indicator = 🔸
-; bar-volume-fill = ─
-; bar-volume-fill-font = 1
-; bar-volume-empty = ─
-; bar-volume-empty-font = 1
-; bar-volume-empty-foreground = ${colors.foreground-alt}
+; bar-volume-fill = ▐
+; bar-volume-empty = ▐
+; bar-volume-empty-foreground = #444444
+
+bar-volume-width = 11
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = 🔸
+bar-volume-fill = ─
+bar-volume-fill-font = 1
+bar-volume-empty = ─
+bar-volume-empty-font = 1
+bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
