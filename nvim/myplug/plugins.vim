@@ -1,5 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'joshdick/onedark.vim'
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 

@@ -4,9 +4,6 @@ inoremap jk <esc>
 noremap  <c-s> :wa<cr>
 inoremap <c-s> <esc>:wa<cr>
 
-"remove current buffer
-noremap <c-w> :bd<cr>
-
 "remove all buffers
 noremap <c-q> :qa<cr>
 
