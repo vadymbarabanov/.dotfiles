@@ -1,7 +1,7 @@
 "restore last line position when opening file
-autocmd BufReadPost * restorePosition()
+autocmd BufReadPost * :call RestorePosition()
 
-function restorePosition()
+function RestorePosition()
 	if line("'\"") > 1 && line("'\"")  <= line ("$")
 		exe "normal! g`\""
 	endif
