@@ -1,10 +1,10 @@
-let g:lightline = { 
+let g:lightline = {
 \  'colorscheme': 'one',
 \
 \  'active': {
 \    'left': [
 \      [ 'mode', 'paste' ],
-\      [ 'gitbranch', 'readonly', 'filename', 'modified' ] 
+\      [ 'gitbranch', 'readonly', 'filename', 'modified' ]
 \     ]
 \  },
 \
@@ -39,7 +39,7 @@ endfunction
 "remove file format on narrow windows
 function! Fileformat()
   return IsNarrow() ? &fileformat : ''
-endfunction 
+endfunction
 
 "remove file type on narrow windows
 function! Filetype()

@@ -39,7 +39,5 @@ if has("nvim")
   set inccommand=nosplit          "show substitutions incrementally
 endif
 
-"========================= PLUGINS CONFIGURATION =============================="
-
 let g:indentLine_char = '▏'
 
