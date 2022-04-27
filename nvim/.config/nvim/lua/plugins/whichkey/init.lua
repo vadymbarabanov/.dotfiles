@@ -6,13 +6,13 @@ if not ok then
 	return
 end
 
-local config_ok, config = pcall(require, "user.whichkey.config")
+local config_ok, config = pcall(require, "plugins.whichkey.config")
 if not config_ok then
 	logger.warn("which-key config not found")
 	return
 end
 
-local keymaps_ok, keymaps = pcall(require, "user.whichkey.keymaps")
+local keymaps_ok, keymaps = pcall(require, "plugins.whichkey.keymaps")
 if not keymaps_ok then
 	logger.warn("which-key keymaps notfound")
 	return

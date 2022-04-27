@@ -28,14 +28,13 @@ vim.cmd([[
   augroup end
 ]])
 
--- NVIM 0.7.0 required section
+-- NVIM 0.7.0 section
 local function set_nvim7_features()
 	if vim.version().minor ~= 7 then
-		logger.info("Skip nvim 0.7.0 features...")
 		return
 	end
 
-	logger.info("Setting up nvim 0.7.0 features...")
+	logger.info("0.7.x version of neovim detected. Setting up new features...")
 
 	local augroup = vim.api.nvim_create_augroup
 	local autocmd = vim.api.nvim_create_autocmd

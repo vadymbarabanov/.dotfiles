@@ -72,16 +72,15 @@ local progress = function()
 		"",
 		"",
 	}
-	-- local chars = { "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
 	local line_ratio = current_line / total_lines
 	local index = math.ceil(line_ratio * #chars)
 	return chars[index]
 end
 
 local spaces = function()
-  if vim.bo.filetype == "go" then
-    return "tabs"
-  end
+	-- if vim.bo.filetype == "go" then
+	-- 	return "tabs"
+	-- end
 
 	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end

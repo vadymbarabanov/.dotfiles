@@ -1,5 +1,8 @@
+local logger = require("utils.logger")
+
 local ok, bufferline = pcall(require, "bufferline")
 if not ok then
+	logger.not_found("bufferline")
 	return
 end
 

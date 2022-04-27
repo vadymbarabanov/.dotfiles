@@ -6,6 +6,6 @@ if not ok then
 	return
 end
 
-require("user.lsp.lsp-installer")
-require("user.lsp.handlers").setup()
-require("user.lsp.null-ls")
+require("plugins.lsp.lsp-installer")
+require("plugins.lsp.handlers").setup()
+require("plugins.lsp.null-ls")

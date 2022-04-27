@@ -1,6 +1,9 @@
 -- Setup nvim-cmp.
+local logger = require("utils.logger")
+
 local ok, npairs = pcall(require, "nvim-autopairs")
 if not ok then
+	logger.not_found("nvim-autopairs")
 	return
 end
 
