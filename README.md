@@ -1,5 +1,17 @@
-# Download packages & creating symbol links
+# .dotfiles
 
-For downloading packages and creating symbol links you can simply use `basestrap.sh` script,
-it'll do that for you automatically. Just don't forget to uncomment line
-that allow execute sudo commands without password in `/etc/sudoers` file.
+The dotfiles are organized in a way to work with a [stow](https://www.gnu.org/software/stow/) utility that helps to manage symlinks.
+
+### Usage
+
+```sh
+# 1. Clone and cd into repo
+git clone git@github.com:vadymbarabanov/.dotfiles.git && cd .dotfiles
+
+# 2. Create symlinks for all folders inside .dotfiles folder
+# / is necessary to omit files (e.g. README.md)
+stow */
+
+# Optional: create a symlink for a particular config folder
+stow nvim
+```

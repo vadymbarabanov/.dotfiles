@@ -1,0 +1,21 @@
+require("user.options")
+require("user.keymaps")
+require("user.autocommands")
+
+require("user.impatient") -- should go before other plugins
+
+require("user.plugins")
+require("user.autopairs")
+require("user.bufferline")
+require("user.cmp")
+require("user.colorscheme")
+require("user.comment")
+require("user.gitsigns")
+require("user.indentline")
+require("user.lsp")
+require("user.lualine")
+require("user.nvim-tree")
+require("user.project")
+require("user.telescope")
+require("user.treesitter")
+require("user.whichkey")
