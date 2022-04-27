@@ -8,16 +8,10 @@ local log_level = {
 	ERROR = 4,
 }
 
-local time_format = "%d.%m.%Y %H:%M"
--- verbose
--- local time_format = "%d of %B %Y %H:%M"
-
-local function get_current_date()
-	return os.date(time_format)
-end
-
 local function notify(msg, level)
-	vim.notify(get_current_date() .. " " .. msg, level)
+	local current_time = os.date("%H:%M %d.%m.%Y")
+
+	vim.notify(current_time .. " " .. msg, level)
 end
 
 -- Common
