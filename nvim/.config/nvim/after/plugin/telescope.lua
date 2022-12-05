@@ -16,7 +16,13 @@ tsc.setup({
         mappings = {
             i = {
                 ["<esc>"] = actions.close,
+                ["<C-j>"] = actions.move_selection_next,
+                ["<C-k>"] = actions.move_selection_previous,
             }
-        }
+        },
+        layout_strategy = "vertical",
+        layout_config = {
+            vertical = {width = 0.5},
+        },
     }
 })
