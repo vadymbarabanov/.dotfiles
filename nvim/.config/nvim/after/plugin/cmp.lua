@@ -4,7 +4,21 @@ if not ok then
     return
 end
 
+local format = {}
+local fmt_ok, lspkind = pcall(require, "lspkind")
+
+if fmt_ok then
+    format = lspkind.cmp_format({
+        mode = "symbol_text",
+        maxwidth = 50,
+        ellipsis_char = "...",
+    })
+end
+
 cmp.setup({
+    formatting = {
+        format = format,
+    },
     mapping = cmp.mapping.preset.insert({
         ["<C-e>"] =  cmp.mapping.close(),
         ["<C-Space>"] = cmp.mapping.complete(),
@@ -14,3 +28,4 @@ cmp.setup({
     }),
     sources = cmp.config.sources({{name = "nvim_lsp"}}, {{name = "buffer"}})
 })
+

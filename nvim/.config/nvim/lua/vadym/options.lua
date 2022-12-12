@@ -4,6 +4,7 @@ local options = {
 
     number = true,
     numberwidth = 2,
+    signcolumn = "yes",
 
     tabstop = 4,
     softtabstop = 4,

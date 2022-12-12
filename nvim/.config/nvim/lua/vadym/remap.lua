@@ -1,13 +1,12 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+
 local opts = {noremap = true, silent = true}
 
 local function remap(mode, value, target)
     vim.api.nvim_set_keymap(mode, value, target, opts)
 end
-
-remap("n", "<leader><Tab>", "<cmd>NvimTreeToggle<CR>")
 
 -- Better windows navigation
 remap("n", "<C-h>", "<C-w>h")
@@ -35,13 +34,13 @@ remap("n", "<C-d>", "<C-d>zz")
 remap("x", "p", "\"_dP")
 remap("n", "x", "\"_x")
 
--- EXPERIMENTAL SECTION
-
--- Delete a word backwards
-remap("n", "dw", "vb\"_d")
+-- Close active buffer
+remap("n", "<C-w>", "<C-w>q")
 
 -- Select all
 remap("n", "<C-a>", 'gg<S-v>G')
+
+-- EXPERIMENTAL SECTION
 
 -- Resize split
 remap("n", "<A-up>", "<C-w>+")
@@ -49,8 +48,4 @@ remap("n", "<A-down>", "<C-w>-")
 remap("n", "<A-left>", "<C-w><")
 remap("n", "<A-right>", "<C-w>>")
 
--- Close active buffer
-remap("n", "<C-w>", "<C-w>q")
-
-remap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>")
-
+vim.api.nvim_set_keymap("n", "S",  ":%s//g<Left><Left>", {noremap = true})

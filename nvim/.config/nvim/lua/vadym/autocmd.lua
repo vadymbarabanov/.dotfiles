@@ -16,6 +16,12 @@ autocmd("BufWritePre", {
     command = ":%s/\\s\\+$//e",
 })
 
+-- Stop commenting new line
+autocmd("BufEnter", {
+    pattern = "*",
+    command = "setlocal formatoptions-=cro",
+})
+
 -- Global status line
-vim.cmd([[highlight WinSeparator guibg=None]])
+vim.cmd("highlight WinSeparator guibg=None")
 
