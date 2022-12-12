@@ -26,8 +26,6 @@ local options = {
     laststatus = 3,
 
     background = "dark",
-
-    showmode = false,
 }
 
 for key, value in pairs(options) do
