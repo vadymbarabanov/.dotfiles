@@ -1,1 +1,2 @@
-# Neovim config written in lua
+Nvim configuration in lua
+
