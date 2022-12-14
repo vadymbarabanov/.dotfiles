@@ -42,9 +42,9 @@ lsp["denols"].setup({
 })
 
 -- Golang
-lsp["golangci_lint_ls"].setup({
-    on_attach = on_attach
-})
+-- lsp["golangci_lint_ls"].setup({
+--     on_attach = on_attach
+-- })
 lsp["gopls"].setup({
     on_attach = on_attach
 })

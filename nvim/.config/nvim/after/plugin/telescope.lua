@@ -10,10 +10,13 @@ local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<C-p>", builtin.find_files, {})
 vim.keymap.set("n", "<C-f>", builtin.live_grep, {})
 vim.keymap.set("n", "<C-b>", builtin.buffers, {})
-vim.keymap.set("n", "<C-e>", ":Telescope file_browser<CR>", { noremap = true })
 
 telescope.setup({
     defaults = {
+        file_ignore_patterns = {
+            "node_modules",
+            ".git",
+        },
         mappings = {
             i = {
                 ["<esc>"] = actions.close,
@@ -37,12 +40,4 @@ telescope.setup({
             theme = "dropdown",
         }
     },
-    extensions = {
-        file_browser = {
-            theme = "ivy",
-            hijack_netrw = true,
-        }
-    }
 })
-
-telescope.load_extension("file_browser")
