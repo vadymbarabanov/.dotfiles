@@ -14,37 +14,48 @@ packer.init({
 })
 
 return packer.startup(function(use)
-    use("wbthomason/packer.nvim") -- plugin manager itself
-    use("nvim-lua/plenary.nvim") -- useful funcs used by many plugins
+    -- Plugin manager itself
+    use("wbthomason/packer.nvim")
 
-    use("Mofiqul/vscode.nvim") -- colorscheme
+    -- Utils functions used by other plugins
+    use("nvim-lua/plenary.nvim")
 
-    -- Lsp
+    -- Colorscheme
+    use("Mofiqul/vscode.nvim")
+
+    -- Language Server Protocol
     use("neovim/nvim-lspconfig")
 
-    use("nvim-treesitter/nvim-treesitter")
+    -- Completion
     use({
-        "lukas-reineke/indent-blankline.nvim",
-        requires = {{"nvim-treesitter/nvim-treesitter", opt = true}}
+        "hrsh7th/nvim-cmp",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
     })
-    use("windwp/nvim-autopairs")
+    -- Completion Icons
+    use("onsails/lspkind.nvim")
 
+    -- Code highlighting
+    use("nvim-treesitter/nvim-treesitter")
+
+    -- Telescope
     use({
-        -- `:checkhealth telescope` to check utilities telescope requires
         "nvim-telescope/telescope.nvim",
         branch = "0.1.x",
         requires = {{"nvim-lua/plenary.nvim"}}
     })
 
-    -- Completion
-    use("hrsh7th/nvim-cmp")
-    use("hrsh7th/cmp-nvim-lsp")
-    use("hrsh7th/cmp-buffer")
-    -- testing
-        use("onsails/lspkind.nvim")
+    -- Git Signs
+    use("lewis6991/gitsigns.nvim")
 
-    -- testing
-        -- Git
-        use("lewis6991/gitsigns.nvim")
-        use("dinhhuy258/git.nvim")
+    -- Indentation line
+    use({
+        "lukas-reineke/indent-blankline.nvim",
+        requires = {{
+            "nvim-treesitter/nvim-treesitter",
+            opt = true,
+        }},
+    })
+
+    use("windwp/nvim-autopairs")
 end)
