@@ -2,6 +2,8 @@ export HISTSIZE=5000
 export SAVEHIST=5000
 export HISTFILE=~/.zhistory
 
+[ -f $HOME/.tokens ] && source $HOME/.tokens
+
 # Golang
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin

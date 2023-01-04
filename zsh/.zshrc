@@ -11,7 +11,7 @@ alias src="source $HOME/.zshrc"
 # Git integration to prompt
 autoload -Uz vcs_info
 precmd() { vcs_info }
-zstyle ':vcs_info:git:*' formats '%F{magenta}%b%f '
+zstyle ':vcs_info:git:*' formats '%F{blue}git(%f%F{red}%b%f%F{blue})%f '
 
 setopt PROMPT_SUBST
 PROMPT='%F{green}%T%f %F{white}%1~%f ${vcs_info_msg_0_}%F{green}%#%f '
