@@ -1,7 +1,7 @@
 setopt histignorealldups sharehistory
 
 # Aliases
-alias ls="ls --color=auto"
+alias ls="ls -a --color=auto"
 alias ll="ls -lah --color=auto"
 alias vsc="code . && exit"
 alias path="echo \"$PATH\" | tr \":\" \"\n\""
