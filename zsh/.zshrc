@@ -14,7 +14,7 @@ precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '%F{blue}git(%f%F{red}%b%f%F{blue})%f '
 
 setopt PROMPT_SUBST
-PROMPT='%F{blue}%T%f %F{black}%1~%f ${vcs_info_msg_0_}%F{blue}%#%f '
+PROMPT='%F{blue}%T%f %F{white}%1~%f ${vcs_info_msg_0_}%F{blue}%#%f '
 
 # Completion
 autoload -Uz compinit; compinit
