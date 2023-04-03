@@ -40,6 +40,13 @@ return packer.startup(function(use)
     use("hrsh7th/nvim-cmp")
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-buffer")
+
+    -- Markdown Tables Auto Adjust
+    use({
+        "dhruvasagar/vim-table-mode",
+        config = function() vim.g.table_mode_corner = "|" end
+    })
+
     -- testing
         use("onsails/lspkind.nvim")
 
