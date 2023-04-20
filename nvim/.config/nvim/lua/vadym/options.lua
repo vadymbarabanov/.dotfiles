@@ -33,4 +33,3 @@ end
 
 -- Parse "some-thing" as one word
 vim.opt.iskeyword:append("-")
-

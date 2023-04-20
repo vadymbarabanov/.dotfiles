@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 
-local opts = {noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 
 local function remap(mode, value, target)
     vim.api.nvim_set_keymap(mode, value, target, opts)
@@ -48,4 +48,4 @@ remap("n", "<A-down>", "<C-w>-")
 remap("n", "<A-left>", "<C-w><")
 remap("n", "<A-right>", "<C-w>>")
 
-vim.api.nvim_set_keymap("n", "S",  ":%s//g<Left><Left>", {noremap = true})
+vim.api.nvim_set_keymap("n", "S", ":%s//g<Left><Left>", { noremap = true })

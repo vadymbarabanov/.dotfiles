@@ -8,6 +8,7 @@ treesitter.setup({
     ensure_installed = {
         "javascript",
         "typescript",
+        "rust",
         "go",
         "gomod",
         "lua",

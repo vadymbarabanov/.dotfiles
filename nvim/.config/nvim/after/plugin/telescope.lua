@@ -1,4 +1,4 @@
-local ok, telescope = pcall(require,"telescope")
+local ok, telescope = pcall(require, "telescope")
 if not ok then
     vim.notify("telescope not found")
     return
@@ -26,7 +26,7 @@ telescope.setup({
         },
         layout_strategy = "vertical",
         layout_config = {
-            vertical = {width = 0.5},
+            vertical = { width = 0.5 },
         },
     },
     pickers = {
@@ -41,4 +41,3 @@ telescope.setup({
         }
     },
 })
-
