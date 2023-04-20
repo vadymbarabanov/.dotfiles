@@ -6,7 +6,7 @@ end
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
@@ -23,14 +23,14 @@ local on_attach = function(client, bufnr)
         })
     end
 
-    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 end
 
-local lang_servers = {"tsserver", "gopls", "rust_analyzer"}
+local lang_servers = { "tsserver", "gopls", "rust_analyzer" }
 
 for _, lang_server in ipairs(lang_servers) do
     lsp[lang_server].setup({
@@ -38,3 +38,22 @@ for _, lang_server in ipairs(lang_servers) do
     })
 end
 
+lsp["lua_ls"].setup({
+    on_attach = on_attach,
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" },
+            }
+        }
+    }
+})
+
+lsp["eslint"].setup({
+    on_attach = function(_, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+        })
+    end
+})
