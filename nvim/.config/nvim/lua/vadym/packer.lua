@@ -21,7 +21,6 @@ return packer.startup(function(use)
 
     -- Lsp
     use("neovim/nvim-lspconfig")
-    use("onsails/lspkind.nvim")
 
     use("nvim-treesitter/nvim-treesitter")
     use({
@@ -41,6 +40,7 @@ return packer.startup(function(use)
     use("hrsh7th/nvim-cmp")
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-buffer")
+    use("onsails/lspkind.nvim")
 
     -- Markdown Tables Auto Adjust
     use({

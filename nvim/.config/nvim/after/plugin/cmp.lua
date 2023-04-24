@@ -9,7 +9,7 @@ local fmt_ok, lspkind = pcall(require, "lspkind")
 
 if fmt_ok then
     format = lspkind.cmp_format({
-        mode = "symbol_text",
+        mode = "text",
         maxwidth = 50,
         ellipsis_char = "...",
     })
