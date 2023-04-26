@@ -1,4 +1,4 @@
-require("vadym.options")
-require("vadym.packer")
-require("vadym.remap")
-require("vadym.autocmd")
+require("config.options")
+require("config.remap")
+require("config.autocmd")
+require("plugins")

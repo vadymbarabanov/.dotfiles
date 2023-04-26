@@ -40,8 +40,6 @@ remap("n", "<C-w>", "<C-w>q")
 -- Select all
 remap("n", "<C-a>", 'gg<S-v>G')
 
--- EXPERIMENTAL SECTION
-
 -- Resize split
 remap("n", "<A-up>", "<C-w>+")
 remap("n", "<A-down>", "<C-w>-")
