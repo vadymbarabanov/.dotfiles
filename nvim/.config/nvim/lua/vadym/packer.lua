@@ -17,7 +17,8 @@ return packer.startup(function(use)
     use("wbthomason/packer.nvim") -- plugin manager itself
     use("nvim-lua/plenary.nvim")  -- useful funcs used by many plugins
 
-    use("Mofiqul/vscode.nvim")    -- colorscheme
+    use("Mofiqul/vscode.nvim")
+    use({ "catppuccin/nvim", as = "catppuccin" })
 
     -- Lsp
     use("neovim/nvim-lspconfig")
