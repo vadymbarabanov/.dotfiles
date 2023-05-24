@@ -22,7 +22,7 @@ return {
             vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
         end
 
-        local lang_servers = { "tsserver", "gopls", "rust_analyzer" }
+        local lang_servers = { "tsserver", "gopls", "rust_analyzer", "zls" }
 
         for _, lang_server in ipairs(lang_servers) do
             lsp[lang_server].setup({

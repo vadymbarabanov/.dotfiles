@@ -22,6 +22,7 @@ return {
                     "yaml",
                     "toml",
                     "json",
+                    "zig",
                 },
                 auto_install = true,
                 highlight = {
