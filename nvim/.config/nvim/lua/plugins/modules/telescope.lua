@@ -13,7 +13,7 @@ return {
         vim.keymap.set("n", "<C-b>", builtin.buffers, {})
 
         require('telescope').setup({
-            defaults    = {
+            defaults = {
                 file_ignore_patterns = {
                     "node_modules",
                     "package-lock.json",
@@ -31,9 +31,7 @@ return {
                     vertical = { width = 0.5 },
                 },
             },
-            border      = {},
-            borderchars = nil,
-            pickers     = {
+            pickers  = {
                 find_files = {
                     theme = "dropdown",
                 },
