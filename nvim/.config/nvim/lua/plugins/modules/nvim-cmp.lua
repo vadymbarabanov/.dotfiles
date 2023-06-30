@@ -5,6 +5,8 @@ return {
         { "hrsh7th/cmp-nvim-lsp" },
         { "hrsh7th/cmp-buffer" },
         { "onsails/lspkind.nvim" },
+        { "dcampos/nvim-snippy" },
+        { "dcampos/cmp-snippy" },
     },
     config = function()
         local lspkind = require("lspkind")
@@ -25,7 +27,17 @@ return {
                 ["<Tab>"] = cmp.mapping.select_next_item(),
                 ["<S-Tab>"] = cmp.mapping.select_prev_item(),
             }),
-            sources = cmp.config.sources({ { name = "nvim_lsp" } }, { { name = "buffer" } })
+            sources = cmp.config.sources({
+                { name = "nvim_lsp" },
+                { name = "snippy" },
+            }, {
+                { name = "buffer" },
+            }),
+            snippet = {
+                expand = function(args)
+                    require("snippy").expand_snippet(args.body)
+                end
+            },
         })
     end,
 }

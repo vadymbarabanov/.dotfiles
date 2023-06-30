@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-
 local opts = { noremap = true, silent = true }
 
 local function remap(mode, value, target)
