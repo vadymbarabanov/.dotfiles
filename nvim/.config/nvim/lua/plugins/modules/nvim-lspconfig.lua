@@ -1,3 +1,15 @@
+local lang_servers = {
+    "tsserver",
+    "gopls",
+    "rust_analyzer",
+    "zls",
+    "emmet_ls",
+    "html",
+    "cssls",
+    "tailwindcss",
+    "bufls", -- proto files
+}
+
 local function setup_keymaps(buf)
     local bufopts = { noremap = true, silent = true, buffer = buf }
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
@@ -32,17 +44,6 @@ return {
 
             setup_keymaps(bufnr)
         end
-
-        local lang_servers = {
-            "tsserver",
-            "gopls",
-            "rust_analyzer",
-            "zls",
-            "emmet_ls",
-            "html",
-            "cssls",
-            "tailwindcss",
-        }
 
         for _, lang_server in ipairs(lang_servers) do
             lsp[lang_server].setup({
