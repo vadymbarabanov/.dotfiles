@@ -34,5 +34,8 @@ end
 -- Parse "some-thing" as one word
 vim.opt.iskeyword:append("-")
 
--- slate and habamax are great default nvim themes
+-- list of great default colorschemes
+-- habamax
+-- slate
+-- sorbet
 vim.cmd.colorscheme("habamax")

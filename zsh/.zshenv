@@ -4,6 +4,9 @@ export HISTFILE=~/.zhistory
 
 [ -f $HOME/.tokens ] && source $HOME/.tokens
 
+# Scripts
+export PATH=$PATH:$HOME/scripts
+
 # Golang
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
@@ -14,6 +17,16 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 
 # Rust
 . "$HOME/.cargo/env"
+
+# Zig
+export PATH=$PATH:$HOME/local/zig/bin
+export PATH=$PATH:$HOME/local/zls/bin
+
+# Neovim
+export PATH=$PATH:$HOME/local/nvim/bin
+
+# Lua language server
+export PATH="$HOME/local/lua-language-server/bin:$PATH"
 
 # NVM (Node)
 export NVM_DIR="$HOME/.nvm"

@@ -1,6 +1,7 @@
 local lang_servers = {
     "tsserver",
     "gopls",
+    "golangci_lint_ls",
     "rust_analyzer",
     "zls",
     "emmet_ls",

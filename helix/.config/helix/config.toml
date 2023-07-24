@@ -8,3 +8,14 @@ normal = "block"
 select = "block"
 insert = "bar"
 
+[editor.statusline]
+left = ["mode", "spinner", "version-control", "file-name"]
+right = ["diagnostics", "selections", "position", "file-type", "file-encoding"]
+
+[editor.indent-guides]
+render = true
+character = "▏"
+
+[editor.soft-wrap]
+enable = true
+
