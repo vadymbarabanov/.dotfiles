@@ -1,3 +1,5 @@
+export COLORTERM=truecolor
+
 export HISTSIZE=5000
 export SAVEHIST=5000
 export HISTFILE=~/.zhistory
