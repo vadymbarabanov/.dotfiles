@@ -9,21 +9,7 @@ auto-format = true
 formatter = { command = "prettier", args = ["--parser", "typescript"] } 
 
 [[language]]
-name = "html"
-auto-format = true
-formatter = { command = "prettier", args = ["--parser", "html"] }
-
-[[language]]
-name = "css"
-auto-format = true
-formatter = { command = "prettier", args = ["--parser", "css"] }
-
-[[language]]
-name = "scss"
-auto-format = true
-formatter = { command = "prettier", args = ["--parser", "scss"] }
-
-[[language]]
 name = "graphql"
 auto-format = true
 formatter = { command = "prettier", args = ["--parser", "graphql"] }
+

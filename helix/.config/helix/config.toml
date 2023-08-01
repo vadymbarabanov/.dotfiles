@@ -1,7 +1,10 @@
-theme = "penumbra+"
+theme = "github_dark"
 
 [editor]
-bufferline = "multiple"
+color-modes = true
+cursorline = true
+auto-save = true
+bufferline = "always"
 
 [editor.cursor-shape]
 normal = "block"
@@ -9,13 +12,15 @@ select = "block"
 insert = "bar"
 
 [editor.statusline]
-left = ["mode", "spinner", "version-control", "file-name"]
+left = ["mode", "spinner", "version-control"]
 right = ["diagnostics", "selections", "position", "file-type", "file-encoding"]
 
 [editor.indent-guides]
 render = true
-character = "▏"
 
 [editor.soft-wrap]
 enable = true
+
+[editor.file-picker]
+hidden = false
 
