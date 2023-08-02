@@ -24,3 +24,11 @@ enable = true
 [editor.file-picker]
 hidden = false
 
+[keys.normal]
+d = ["delete_selection_noyank"]
+"A-d" = ["delete_selection"]
+
+[keys.select]
+d = ["delete_selection_noyank"]
+"A-d" = ["delete_selection"]
+
