@@ -1,24 +1,21 @@
-export COLORTERM=truecolor
-
 export HISTSIZE=5000
 export SAVEHIST=5000
-export HISTFILE=~/.zhistory
+export HISTFILE=$HOME/.cache/zsh/zhistory
+export ZSH_COMPDUMP=$HOME/.cache/zsh/zcompdump
+
+export COLORTERM=truecolor
+export EDITOR=helix
+
+export PATH=$PATH:$HOME/scripts
 
 [ -f $HOME/.tokens ] && source $HOME/.tokens
-
-# Scripts
-export PATH=$PATH:$HOME/scripts
 
 # Golang
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
 
-# Deno
-export DENO_INSTALL=$HOME/.deno
-export PATH="$DENO_INSTALL/bin:$PATH"
-
 # Rust
-. "$HOME/.cargo/env"
+[ -f $HOME/.cargo/env ] && . "$HOME/.cargo/env"
 
 # Zig
 export PATH=$PATH:$HOME/local/zig/bin
@@ -30,7 +27,29 @@ export PATH=$PATH:$HOME/local/nvim/bin
 # Lua language server
 export PATH="$HOME/local/lua-language-server/bin:$PATH"
 
+# pnpm
+export PNPM_HOME="${HOME}/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
 # NVM (Node)
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm() {
+  unfunction $0
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  nvm "$@"
+}
+npm() {
+  unfunction $0
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  npm "$@"
+}
+node() {
+  unfunction $0
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  node "$@"
+}

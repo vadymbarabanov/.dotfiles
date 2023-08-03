@@ -1,13 +1,15 @@
-setopt histignorealldups sharehistory
-
 # Aliases
 alias ls="ls -a --color=auto"
 alias ll="ls -lah --color=auto"
-alias vsc="code . && exit"
 alias path="echo \"$PATH\" | tr \":\" \"\n\""
 alias tree="tree -a -C -I \"node_modules|.git|dist|build\""
 alias src="source $HOME/.zshrc"
+alias mkcd='(){mkdir -p "$1"; cd "$1"}'
+alias hx="helix"
 alias nv="nvim"
+alias vsc="code . && exit"
+
+setopt histignorealldups sharehistory
 
 # Git integration to prompt
 autoload -Uz vcs_info
@@ -18,7 +20,7 @@ setopt PROMPT_SUBST
 PROMPT='%F{green}%T%f %F{white}%1~%f ${vcs_info_msg_0_}%F{green}%#%f '
 
 # Completion
-autoload -Uz compinit; compinit
+autoload -Uz compinit; compinit -d $ZSH_COMPDUMP
 
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' group-name ''
@@ -28,17 +30,3 @@ zstyle ':completion:*' group-name ''
 alias luamake=$HOME/local/lua-language-server/3rd/luamake/luamake
 # Lua end
 
-# pnpm
-alias p="pnpm"
-
-export PNPM_HOME="/home/vadym/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
-
-
-# bun completions
-[ -s "/home/vadym/.bun/_bun" ] && source "/home/vadym/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
