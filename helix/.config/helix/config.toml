@@ -25,14 +25,10 @@ enable = true
 hidden = false
 
 [keys.normal]
-d = ["delete_selection_noyank"]
-"A-d" = ["delete_selection"]
 c = ["change_selection_noyank"]
 "A-c" = ["change_selection"]
 
 [keys.select]
-d = ["delete_selection_noyank"]
-"A-d" = ["delete_selection"]
 c = ["change_selection_noyank"]
 "A-c" = ["change_selection"]
 
