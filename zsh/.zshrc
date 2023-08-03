@@ -8,6 +8,7 @@ alias mkcd='(){mkdir -p "$1"; cd "$1"}'
 alias hx="helix"
 alias nv="nvim"
 alias vsc="code . && exit"
+alias p=pnpm
 
 setopt histignorealldups sharehistory
 
