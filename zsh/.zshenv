@@ -18,8 +18,8 @@ export PATH=$PATH:$HOME/go/bin
 [ -f $HOME/.cargo/env ] && . "$HOME/.cargo/env"
 
 # Zig
-export PATH=$PATH:$HOME/local/zig/bin
-export PATH=$PATH:$HOME/local/zls/bin
+export PATH=$PATH:$HOME/.local/zig/bin
+export PATH=$PATH:$HOME/.local/zls/bin
 
 # Neovim
 export PATH=$PATH:$HOME/local/nvim/bin
@@ -34,22 +34,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-# NVM (Node)
-nvm() {
-  unfunction $0
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  nvm "$@"
-}
-npm() {
-  unfunction $0
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  npm "$@"
-}
-node() {
-  unfunction $0
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  node "$@"
-}
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
