@@ -1,5 +1,5 @@
 local options = {
-    cursorline = true,
+    -- cursorline = true,
 
     number = true,
     numberwidth = 2,
@@ -23,19 +23,12 @@ local options = {
     splitright = true,
 
     laststatus = 3,
-
-    background = "dark",
 }
 
 for key, value in pairs(options) do
     vim.opt[key] = value
 end
 
--- Parse "some-thing" as one word
-vim.opt.iskeyword:append("-")
+-- Global status line
+vim.cmd("highlight WinSeparator guibg=None")
 
--- list of great default colorschemes
--- habamax
--- slate
--- sorbet
-vim.cmd.colorscheme("habamax")

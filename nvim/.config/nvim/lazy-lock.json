@@ -1,0 +1,14 @@
+{
+  "gitsigns.nvim": { "branch": "main", "commit": "a4db718c78bff65198e3b63f1043f1e7bb5e05c8" },
+  "lazy.nvim": { "branch": "main", "commit": "31ddbea7c10b6920c9077b66c97951ca8682d5c8" },
+  "mini.bracketed": { "branch": "main", "commit": "65c7dfb51e832de9e279e5d5b0741e7af6755ab5" },
+  "mini.comment": { "branch": "main", "commit": "ea3021eb959080a4ed4793733f12a194dfe06edc" },
+  "mini.completion": { "branch": "main", "commit": "0cf6c4e257b5e8189ac6b3ffa2064a319c4eb8a8" },
+  "mini.pairs": { "branch": "main", "commit": "04f58f2545ed80ac3b52dd4826e93f33e15b2af6" },
+  "mini.surround": { "branch": "main", "commit": "49e0364b8c9a3258b485c5ece40bb0f3a5e94b1c" },
+  "nvim-lspconfig": { "branch": "master", "commit": "f4619ab31fc4676001ea05ae8200846e6e7700c7" },
+  "nvim-treesitter": { "branch": "master", "commit": "54cf9180a36299265e217858e6e531245074c3f4" },
+  "plenary.nvim": { "branch": "master", "commit": "8aad4396840be7fc42896e3011751b7609ca4119" },
+  "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
+  "telescope.nvim": { "branch": "master", "commit": "4626aaa2bcfdacf55fd6d44b430e2df81b2403ff" }
+}
