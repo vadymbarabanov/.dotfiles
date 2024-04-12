@@ -28,20 +28,13 @@ return {
             vim.keymap.set('n', '<leader>d]', vim.diagnostic.goto_next)
         end
 
-        -- typescript
-        lsp["tsserver"].setup({
-            on_attach = on_attach,
-        })
+        local servers = { "tsserver", "gopls", "zls", "rust_analyzer" }
 
-        -- golang
-        lsp["gopls"].setup({
-            on_attach = on_attach,
-        })
-
-        -- ziglang
-        lsp["zls"].setup({
-            on_attach = on_attach,
-        })
+        for _, server in ipairs(servers) do
+            lsp[server].setup({
+                on_attach = on_attach,
+            })
+        end
     end,
 }
 

@@ -36,8 +36,7 @@ remap("n", "x", "\"_x")
 -- Close active buffer
 remap("n", "<C-w>", "<C-w>q")
 
--- Select all
-remap("n", "<C-a>", 'gg<S-v>G')
+remap("n", "<C-a>", "ggVG")
 
 -- Resize split
 remap("n", "<A-up>", "<C-w>+")

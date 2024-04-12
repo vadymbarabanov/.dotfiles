@@ -8,6 +8,7 @@
   "mini.surround": { "branch": "main", "commit": "49e0364b8c9a3258b485c5ece40bb0f3a5e94b1c" },
   "nvim-lspconfig": { "branch": "master", "commit": "f4619ab31fc4676001ea05ae8200846e6e7700c7" },
   "nvim-treesitter": { "branch": "master", "commit": "54cf9180a36299265e217858e6e531245074c3f4" },
+  "oil.nvim": { "branch": "master", "commit": "e462a3446505185adf063566f5007771b69027a1" },
   "plenary.nvim": { "branch": "master", "commit": "8aad4396840be7fc42896e3011751b7609ca4119" },
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "telescope.nvim": { "branch": "master", "commit": "4626aaa2bcfdacf55fd6d44b430e2df81b2403ff" }
