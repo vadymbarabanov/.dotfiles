@@ -1,5 +1,3 @@
-vim.cmd.colorscheme("lunaperche")
-
 require("options")
 require("remap")
 require("autocmd")
@@ -19,5 +17,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {})
-
 
