@@ -11,4 +11,5 @@
 	pr = pull --rebase
 	hist = log --oneline -10
 	amend = commit --amend
+	edit = commit --amend --no-edit
 	uncommit = reset --soft HEAD^
