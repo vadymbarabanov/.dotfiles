@@ -32,12 +32,12 @@ return {
 
         telescope.load_extension("projects")
 
+        local theme_ivy = require("telescope.themes").get_ivy({})
+
         vim.keymap.set("n", "<C-p>", builtin.find_files, {})
         vim.keymap.set("n", "<C-f>", builtin.live_grep, {})
-        vim.keymap.set("n", "<C-b>", function()
-            local theme = require("telescope.themes").get_ivy({})
-            telescope.extensions.projects.projects(theme)
-        end, {})
+        vim.keymap.set("n", "<C-j>", function() builtin.git_status(theme_ivy) end, {})
+        vim.keymap.set("n", "<C-b>", function() telescope.extensions.projects.projects(theme_ivy) end, {})
     end
 }
 

@@ -1,0 +1,14 @@
+[init]
+	defaultBranch = main
+[branch]
+	sort = -committerdate
+[alias]
+	cm = commit -m
+	co = checkout
+	cob = checkout -b
+	br = branch
+	st = status -s
+	pr = pull --rebase
+	hist = log --oneline -10
+	amend = commit --amend
+	uncommit = reset --soft HEAD^
