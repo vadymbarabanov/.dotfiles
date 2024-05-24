@@ -1,34 +1,17 @@
-theme = "github_dark"
+theme = "modus_operandi_deuteranopia"
 
 [editor]
 color-modes = true
-cursorline = true
 auto-save = true
-bufferline = "always"
 
 [editor.cursor-shape]
 normal = "block"
 select = "block"
 insert = "bar"
 
-[editor.statusline]
-left = ["mode", "spinner", "version-control"]
-right = ["diagnostics", "selections", "position", "file-type", "file-encoding"]
-
-[editor.indent-guides]
-render = true
-
 [editor.soft-wrap]
 enable = true
 
 [editor.file-picker]
 hidden = false
-
-[keys.normal]
-c = ["change_selection_noyank"]
-"A-c" = ["change_selection"]
-
-[keys.select]
-c = ["change_selection_noyank"]
-"A-c" = ["change_selection"]
 
