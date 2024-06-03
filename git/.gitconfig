@@ -13,3 +13,4 @@
 	amend = commit --amend
 	edit = commit --amend --no-edit
 	uncommit = reset --soft HEAD^
+	pushoc = !git push origin $(git rev-parse --abbrev-ref HEAD)
