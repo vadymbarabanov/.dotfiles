@@ -31,16 +31,17 @@ return {
         })
 
         telescope.load_extension("projects")
+        local projects = telescope.extensions.projects.projects
 
-        local ivy = require("telescope.themes").get_ivy({ previewer = false })
+        local ivy = require("telescope.themes").get_ivy
 
         vim.keymap.set("n", "<C-p>", builtin.find_files, {})
         vim.keymap.set("n", "<C-f>", builtin.live_grep, {})
-        vim.keymap.set("n", "<C-g>", function() builtin.git_status(ivy) end, {})
-        vim.keymap.set("n", "<C-b>", function() telescope.extensions.projects.projects(ivy) end, {})
+        vim.keymap.set("n", "<C-g>", function() builtin.git_status(ivy({ previewer = false })) end, {})
+        vim.keymap.set("n", "<C-b>", function() projects(ivy({ previewer = false })) end, {})
 
         -- LSP
-        vim.keymap.set("n", "gr", builtin.lsp_references, {})
+        vim.keymap.set("n", "gr", function() builtin.lsp_references(ivy()) end)
     end
 }
 
