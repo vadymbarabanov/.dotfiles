@@ -18,6 +18,7 @@ local options = {
     smartindent = true,
 
     wrap = false,
+    clipboard = "unnamed",
 
     splitbelow = true,
     splitright = true,
