@@ -18,7 +18,7 @@ return {
                         ["<esc>"] = actions.close,
                         ["<C-j>"] = actions.move_selection_next,
                         ["<C-k>"] = actions.move_selection_previous,
-                    }
+                    },
                 },
             },
             pickers = {
@@ -32,12 +32,15 @@ return {
 
         telescope.load_extension("projects")
 
-        local theme_ivy = require("telescope.themes").get_ivy({})
+        local ivy = require("telescope.themes").get_ivy({ previewer = false })
 
         vim.keymap.set("n", "<C-p>", builtin.find_files, {})
         vim.keymap.set("n", "<C-f>", builtin.live_grep, {})
-        vim.keymap.set("n", "<C-j>", function() builtin.git_status(theme_ivy) end, {})
-        vim.keymap.set("n", "<C-b>", function() telescope.extensions.projects.projects(theme_ivy) end, {})
+        vim.keymap.set("n", "<C-g>", function() builtin.git_status(ivy) end, {})
+        vim.keymap.set("n", "<C-b>", function() telescope.extensions.projects.projects(ivy) end, {})
+
+        -- LSP
+        vim.keymap.set("n", "gr", builtin.lsp_references, {})
     end
 }
 

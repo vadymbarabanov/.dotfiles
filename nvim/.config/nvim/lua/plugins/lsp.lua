@@ -22,7 +22,7 @@ return {
 
             vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float(0, { scope = "line" }) end)
             vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename)
-            vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action)
+            vim.keymap.set('n', '<leader>.', vim.lsp.buf.code_action)
 
             vim.keymap.set('n', '<leader>d[', vim.diagnostic.goto_prev)
             vim.keymap.set('n', '<leader>d]', vim.diagnostic.goto_next)

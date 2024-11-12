@@ -1,5 +1,5 @@
 local options = {
-    -- cursorline = true,
+    cursorline = true,
 
     number = true,
     numberwidth = 2,
