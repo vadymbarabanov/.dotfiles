@@ -3,14 +3,14 @@
 [branch]
 	sort = -committerdate
 [alias]
-	cm = commit -m
+	cm = commit
 	co = checkout
-	cob = checkout -b
 	br = branch
 	st = status -s
 	pr = pull --rebase
 	hist = log --oneline -10
+    unstage = restore --staged
 	amend = commit --amend
 	edit = commit --amend --no-edit
 	uncommit = reset --soft HEAD^
-	pushit = !git push origin $(git rev-parse --abbrev-ref HEAD)
+	pushit = !git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
