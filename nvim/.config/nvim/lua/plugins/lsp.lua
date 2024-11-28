@@ -1,18 +1,17 @@
 return {
     "neovim/nvim-lspconfig",
-    lazy = false,
     config = function()
         local lsp = require("lspconfig")
 
         local on_attach = function(client, bufnr)
-            if client.server_capabilities.documentFormattingProvider then 
-                local format = vim.api.nvim_create_augroup("Format", { clear = false })
-                vim.api.nvim_create_autocmd("BufWritePre", {
-                    command = "silent! lua vim.lsp.buf.format()",
-                    group = format,
-                    buffer = bufnr,
-                })
-            end
+            -- if client.server_capabilities.documentFormattingProvider then 
+            --     local format = vim.api.nvim_create_augroup("Format", { clear = false })
+            --     vim.api.nvim_create_autocmd("BufWritePre", {
+            --         command = "silent! lua vim.lsp.buf.format()",
+            --         group = format,
+            --         buffer = bufnr,
+            --     })
+            -- end
 
             local bufopts = { noremap = true, silent = true, buffer = buf }
             vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
@@ -28,7 +27,7 @@ return {
             vim.keymap.set('n', '<leader>d]', vim.diagnostic.goto_next)
         end
 
-        local servers = { "tsserver", "gopls", "zls", "rust_analyzer" }
+        local servers = { "ts_ls", "gopls", "zls" }
 
         for _, server in ipairs(servers) do
             lsp[server].setup({

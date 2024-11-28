@@ -7,7 +7,7 @@ return {
                 "package.json",
                 "go.mod",
                 "Makefile",
-                "README.md",
+                "build.zig",
                 "lazy-lock.json",
             },
         })

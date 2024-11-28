@@ -17,6 +17,9 @@ remap("n", "<C-j>", "<C-w>j")
 remap("n", "<C-k>", "<C-w>k")
 remap("n", "<C-l>", "<C-w>l")
 
+-- Close active buffer
+remap("n", "<C-w>", "<C-w>q", { nowait = true })
+
 -- Move line up and down
 remap("n", "<A-j>", ":m .+1<CR>==")
 remap("n", "<A-k>", ":m .-2<CR>==")
@@ -36,10 +39,6 @@ remap("n", "<C-d>", "<C-d>zz")
 -- Do not replace 'copy' register with paste and delete
 remap("x", "p", "\"_dP")
 remap("n", "x", "\"_x")
-remap("n", "d", "\"_d")
-
--- Close active buffer
-remap("n", "<C-w>", "<C-w>q", { nowait = true })
 
 -- Resize split
 remap("n", "<A-up>", "<C-w>+")
@@ -47,4 +46,3 @@ remap("n", "<A-down>", "<C-w>-")
 remap("n", "<A-left>", "<C-w><")
 remap("n", "<A-right>", "<C-w>>")
 
-vim.api.nvim_set_keymap("n", "S", ":%s//g<Left><Left>", { noremap = true })

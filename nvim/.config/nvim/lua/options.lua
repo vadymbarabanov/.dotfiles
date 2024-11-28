@@ -9,13 +9,12 @@ local options = {
     softtabstop = 4,
     shiftwidth = 4,
     expandtab = true,
+    smartindent = true,
 
     hlsearch = false,
     incsearch = true,
     ignorecase = true,
     smartcase = true,
-
-    smartindent = true,
 
     wrap = false,
     clipboard = "unnamed",
