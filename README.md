@@ -1,17 +1,32 @@
 # .dotfiles
 
-The dotfiles are organized in a way to work with a [stow](https://www.gnu.org/software/stow/) utility that helps to manage symlinks.
+This is a collection of configuration files (dotfiles) designed to work with the `stow` tool, which helps link them to your system.
 
-### Usage
+## How to Use
+
+### 1. Clone .dotfiles
+
+First, clone the files to your computer and go into the folder:
 
 ```sh
-# 1. Clone and cd into repo
-git clone git@github.com:vadymbarabanov/.dotfiles.git && cd .dotfiles
+git clone https://github.com/vadymbarabanov/.dotfiles.git && cd .dotfiles
+```
 
-# 2. Create symlinks for all folders inside .dotfiles folder
-# / is necessary to omit files (e.g. README.md)
+### 2. Link the configs
+
+**Option 1: Link all configs at once**  
+
+Use this command to create links for all the configs in the `.dotfiles` folder. The `/` at the end skips files like `README.md`:
+
+```sh
 stow */
+```
 
-# Optional: create a symlink for a particular config folder
+**Option 2: Link one config at a time**  
+
+If you only want to link a specific config folder (for example, `nvim`), run:
+
+```sh
 stow nvim
 ```
+
