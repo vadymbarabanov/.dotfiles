@@ -26,7 +26,7 @@ return {
                     theme = "ivy",
                     previewer = false,
                 },
-                live_grep = { theme = "dropdown" },
+                live_grep = { theme = "ivy" },
             },
         })
 
@@ -35,10 +35,10 @@ return {
 
         local ivy = require("telescope.themes").get_ivy
 
-        vim.keymap.set("n", "<C-p>", builtin.find_files, {})
-        vim.keymap.set("n", "<C-f>", builtin.live_grep, {})
-        vim.keymap.set("n", "<C-g>", function() builtin.git_status(ivy({ previewer = false })) end, {})
-        vim.keymap.set("n", "<C-b>", function() projects(ivy({ previewer = false })) end, {})
+        vim.keymap.set("n", "<leader>f", builtin.find_files, {})
+        vim.keymap.set("n", "<leader>F", builtin.live_grep, {})
+        vim.keymap.set("n", "<leader>g", function() builtin.git_status(ivy({ previewer = false })) end, {})
+        vim.keymap.set("n", "<leader>p", function() projects(ivy({ previewer = false })) end, {})
 
         -- LSP
         vim.keymap.set("n", "gr", function() builtin.lsp_references(ivy()) end)
