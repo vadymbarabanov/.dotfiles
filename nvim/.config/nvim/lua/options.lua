@@ -1,5 +1,6 @@
 local options = {
     cursorline = true,
+    scrolloff = 4,
 
     number = true,
     numberwidth = 2,
