@@ -8,14 +8,27 @@ local function remap(mode, value, target, opts)
         for k, v in pairs(opts) do _opts[k] = v end
     end
 
-    vim.api.nvim_set_keymap(mode, value, target, _opts)
+    if type(mode) == "string" then
+        vim.api.nvim_set_keymap(mode, value, target, _opts)
+    else
+        for _, str in ipairs(mode) do
+            vim.api.nvim_set_keymap(str, value, target, _opts)
+        end
+    end
 end
+
+-- Better start, end line navigation
+remap({"n", "v"}, "gh", "^")
+remap({"n", "v"}, "gl", "$")
 
 -- Better windows navigation
 remap("n", "<C-h>", "<C-w>h")
 remap("n", "<C-j>", "<C-w>j")
 remap("n", "<C-k>", "<C-w>k")
 remap("n", "<C-l>", "<C-w>l")
+
+-- Better redo
+remap("n", "U", "<C-r>")
 
 -- Close active buffer
 remap("n", "<C-w>", "<C-w>q", { nowait = true })
