@@ -1,16 +1,16 @@
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [branch]
-	sort = -committerdate
+    sort = -committerdate
 [alias]
-	cm = commit
-	co = checkout
-	br = branch
-	st = status -s
-	pr = pull --rebase
-	hist = log --oneline -10
+    cm = commit
+    co = checkout
+    br = branch
+    st = status -s
+    pr = pull --rebase
+    hist = log --oneline -10
     unstage = restore --staged
-	amend = commit --amend
-	edit = commit --amend --no-edit
-	uncommit = reset --soft HEAD^
-	pushit = !git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
+    amend = commit --amend
+    edit = commit --amend --no-edit
+    uncommit = reset --soft HEAD^
+    pushit = !git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
