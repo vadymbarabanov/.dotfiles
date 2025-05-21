@@ -1,17 +1,31 @@
-theme = "modus_operandi_deuteranopia"
+theme = "ayu_dark"
 
 [editor]
 color-modes = true
 auto-save = true
+end-of-line-diagnostics = "hint"
+continue-comments = false
+
+[editor.statusline]
+left = ["mode", "file-name"]
+right = ["diagnostics", "version-control", "spinner"]
+
+[editor.inline-diagnostics]
+cursor-line = "error"
 
 [editor.cursor-shape]
 normal = "block"
 select = "block"
 insert = "bar"
 
-[editor.soft-wrap]
-enable = true
-
 [editor.file-picker]
-hidden = false
+git-ignore = true
+
+[keys.normal]
+x = "select_line_below"
+X = "select_line_above"
+
+[keys.select]
+x = "select_line_below"
+X = "select_line_above"
 
