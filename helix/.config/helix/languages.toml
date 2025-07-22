@@ -12,8 +12,8 @@ comment-token = "#"
 language-servers = ["roc-ls", "tailwindcss-ls"]
 indent = { tab-width = 2, unit = "  " }
 auto-format = true
-# formatter = { command = "roc", args = ["format", "--stdin", "--stdout"]}
-formatter = { command = "bash", args = ["-c", "roc format --stdin --stdout | rustywind --stdin --custom-regex 'class\\(\"([^\"]+)\"\\)'"]}
+formatter = { command = "roc", args = ["format", "--stdin", "--stdout"]}
+# formatter = { command = "bash", args = ["-c", "roc format --stdin --stdout | rustywind --stdin --custom-regex 'class\\(\"([^\"]+)\"\\)'"]}
 
 [[language]]
 name = "html"

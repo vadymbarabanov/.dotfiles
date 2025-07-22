@@ -1,4 +1,4 @@
-theme = "ayu_dark"
+theme = "yo"
 
 [editor]
 color-modes = true
@@ -7,8 +7,8 @@ end-of-line-diagnostics = "hint"
 continue-comments = false
 
 [editor.statusline]
-left = ["mode", "file-name"]
-right = ["diagnostics", "version-control", "spinner"]
+left = ["mode", "read-only-indicator", "file-name", "file-modification-indicator"]
+right = ["diagnostics", "version-control", "spacer", "spinner"]
 
 [editor.inline-diagnostics]
 cursor-line = "error"
@@ -24,8 +24,8 @@ git-ignore = true
 [keys.normal]
 x = "select_line_below"
 X = "select_line_above"
+space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 
 [keys.select]
 x = "select_line_below"
 X = "select_line_above"
-
